@@ -1,2 +1,16 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path "sunset.jpg" %>);">
+  <div class="container">
+    <h1>Welcome to Buddyアップ</h1>
+    <p>Find your next date-partner</p>
+  </div>
+</div>
+<div class="container">
+<div class="search-bar mt-5">
+    <nav class="navbar navbar-light d-flex justify-content-center">
+      <form class="d-flex flex-row">
+        <input class="form-control mr-sm-2 col-10 mx-4" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </nav>
+  </div>
+</div>
