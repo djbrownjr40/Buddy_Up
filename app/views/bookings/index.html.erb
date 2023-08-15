@@ -1,0 +1,10 @@
+<h1>Your Bookings</h1>
+  <% @bookings.each do |booking| %>
+  <div class="booking">
+    <h3>Date with <%= booking.user.first_name%></h3>
+    <ul>
+    <li>On the <%= booking.date %></li> <!-- We need to add the start and end dates -->
+    <li>For <%= booking.activity.description %> at <%= booking.activity.location %></li>
+    </ul>
+  </div>
+<% end %>

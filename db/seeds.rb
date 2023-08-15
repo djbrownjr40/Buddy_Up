@@ -7,11 +7,13 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require 'faker'
 
+puts 'deleteing previous db..'
+
 Booking.destroy_all
 Activity.destroy_all
 User.destroy_all
 
-p 'creating seed...'
+puts 'creating seed...'
 
 10.times do
   User.create!(
@@ -38,4 +40,4 @@ end
   )
 end
 
-p "created #{User.count} users, #{Activity.count} activities, #{Booking.count} bookings"
+puts "created #{User.count} users, #{Activity.count} activities, #{Booking.count} bookings"
