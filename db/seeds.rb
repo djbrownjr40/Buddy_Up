@@ -25,7 +25,8 @@ end
 10.times do
   Activity.create!(
     location: Faker::Address.community,
-    description: Faker::Hobby.activity,
+    name: Faker::Hobby.activity,
+    description: Faker::Lorem.paragraph,
     hourly_rate: (5..50).to_a.sample,
     user: User.all.sample
   )
