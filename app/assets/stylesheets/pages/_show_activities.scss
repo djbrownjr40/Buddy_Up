@@ -1,0 +1,46 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.activity-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+  padding: 50px;
+  text-align: center;
+}
+
+.activity-image-container {
+  position: relative;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 700px;
+  border: 20px solid #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+
+}
+.activity-image {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  object-fit: fill;
+}
+
+.activity-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+.activity-description {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+.activity-details {
+  font-size: 14px;
+  color: #888;
+}
