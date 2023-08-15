@@ -1,0 +1,4 @@
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)) <%= activity.category.downcase %>&<%= rand(1000) %>)">
+  <%= activity.name %>
+  <%= link_to "", activity_path(activity), class: "card-link"  %>
+</div>
