@@ -16,7 +16,14 @@ p 'creating seed...'
 10.times do
   User.create!(
     email: Faker::Internet.email,
-    password: 'secret'
+    password: 'secret',
+    username: Faker::Internet.user,
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    gender: Faker::Gender.type,
+    preferences: Faker::Gender.type,
+    age: (18..50).to_a.sample,
+    user_rating: (0..5).to_a.sample
   )
 end
 
@@ -29,6 +36,13 @@ end
     user: User.all.sample
   )
 end
+# add_column :users, :username, :string
+# add_column :users, :first_name, :string
+# add_column :users, :last_name, :string
+# add_column :users, :gender, :string
+# add_column :users, :prefefrences, :string
+# add_column :users, :age, :integer
+# add_column :users, :user_rating, :integer
 
 10.times do
   Booking.create!(
