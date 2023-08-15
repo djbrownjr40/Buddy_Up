@@ -18,7 +18,11 @@ puts 'creating seed...'
 10.times do
   User.create!(
     email: Faker::Internet.email,
-    password: 'secret'
+    password: 'secret',
+    first_name: 'Noe',
+    age: 21,
+    gender: 'she/her',
+    preferences: 'she preferes you'
   )
 end
 
