@@ -1,11 +1,12 @@
-<%= link_to activity_path(activity), class: "card-link" do %>
-  <div class="card-category" style="background-image" ;linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
-
-    <%= activity.location %>
-    <div class="card-item">
-      <p><%= activity.description%></p>
-      <p><%= activity.hourly_rate%></p>
-      <p><%= activity.description%></p>
+<div class="card-trip">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= activity.description %></h2>
+      <p><%= activity.location%></p>
     </div>
+    <h2 class="card-trip-pricing"> ¥<%= activity.hourly_rate%> per hour</h2>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
   </div>
-<% end %>
+<%= link_to "", activity_path(activity), class: "card-link" %>
+</div>

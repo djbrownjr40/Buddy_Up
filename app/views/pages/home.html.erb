@@ -7,9 +7,13 @@
 <div class="container">
 <div class="search-bar mt-5">
     <nav class="navbar navbar-light d-flex justify-content-center">
-      <form class="d-flex flex-row">
+      <%# <form class="d-flex flex-row">
         <input class="form-control mr-sm-2 col-10 mx-4" type="search" placeholder="Search" aria-label="Search">
+        <%= link_to "search", activities_path, class: "btn btn-outline-primary my-2 my-sm-0" %>
+        <form class="d-flex flex-row" action="<%= activities_path %>" method="GET">
+        <input class="form-control mr-sm-2 col-10 mx-4" type="search" placeholder="Search" aria-label="Search" name="query">
         <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+      </form>
       </form>
     </nav>
   </div>
