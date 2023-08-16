@@ -49,7 +49,6 @@ puts 'creating seed...'
   photo_url = "https://this-person-does-not-exist.com#{src}"
   file = URI.open(photo_url)
   user.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
-
 end
 
 10.times do
