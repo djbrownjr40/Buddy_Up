@@ -9,9 +9,9 @@ require 'faker'
 
 puts 'deleteing previous db..'
 
-Booking.destroy_all
-Activity.destroy_all
-User.destroy_all
+puts 'bookings destroyed' if Booking.destroy_all
+puts 'activities destroyed' if Activity.destroy_all
+puts 'users destroyed' if User.destroy_all
 
 puts 'creating seed...'
 
@@ -57,10 +57,12 @@ end
     location: Faker::Address.community,
     name: Faker::Hobby.activity,
     description: Faker::Lorem.paragraph,
-    hourly_rate: (5..50).to_a.sample,
+    hourly_rate: (5..20).to_a.sample * 1000,
     user: User.all.sample
   )
-  puts "Activity created! Name: #{activity.name}, "
+  url = "http://source.unsplash.com/featured/?#{activity.name}"
+  file = URI.open(url)
+  activity.photo.attach(io: file, filename: 'activity.png', content_type: 'image/png')
 end
 
 10.times do
