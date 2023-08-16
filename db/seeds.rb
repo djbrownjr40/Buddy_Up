@@ -7,11 +7,13 @@
 #   Character.create(name: "Luke", movie: movies.first)
 require 'faker'
 
+puts 'deleteing previous db..'
+
 Booking.destroy_all
 Activity.destroy_all
 User.destroy_all
 
-p 'creating seed...'
+puts 'creating seed...'
 
 10.times do
   User.create!(
@@ -46,11 +48,12 @@ end
 
 10.times do
   Booking.create!(
-    date: Faker::Date.forward(days: 50),
-    status: nil,
+    start_date: Faker::Date.forward(days: 50),
+    status: (0..2).to_a.sample,
     user: User.all.sample,
-    activity: Activity.all.sample
+    activity: Activity.all.sample,
+    end_date: Faker::Date.forward(days: 50),
   )
 end
 
-p "created #{User.count} users, #{Activity.count} activities, #{Booking.count} bookings"
+puts "created #{User.count} users, #{Activity.count} activities, #{Booking.count} bookings"
