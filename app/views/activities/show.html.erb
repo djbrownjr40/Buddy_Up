@@ -15,7 +15,7 @@
 
   <div class="profile-card">
     <div class="profile-image">
-      <img src="profile-image.jpg" alt="Profile Image">
+            <%= cl_image_tag @activity.user.photo.key %>
     </div>
     <div class="profile-details">
       <h2><%= @activity.user.first_name %> ・ <%= @activity.user.age %></h2>
