@@ -14,7 +14,7 @@ User.destroy_all
 p 'creating seed...'
 
 10.times do
-  User.create!(
+  user = User.create!(
     email: Faker::Internet.email,
     password: 'secret',
     username: Faker::Internet.user,
@@ -28,11 +28,11 @@ p 'creating seed...'
   gender = Faker::Gender.type
   age = (18..50).to_a.sample
   url = "https://this-person-does-not-exist.com/new?gender=#{gender}&age=#{age}&etnic=all"
-  json = URI.open(url)
+  json = URI.open(url).read
   src = JSON.parse(json)['src']
   photo_url = "https://this-person-does-not-exist.com#{src}"
   file = URI.open(photo_url)
-  User.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
+  user.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
 end
 
 10.times do
