@@ -15,8 +15,20 @@ User.destroy_all
 
 puts 'creating seed...'
 
+ brad = User.create!(
+  email: "blbla@gmail.com",
+  password: 'secret',
+  username: "brad12",
+  first_name: "Brad",
+  last_name: "Bread",
+  gender: "male",
+  preferences: "straight",
+  age: 24,
+  user_rating: 2 )
+
+
 10.times do
-  User.create!(
+  user = User.create!(
     email: Faker::Internet.email,
     password: 'secret',
     username: Faker::Internet.user,
@@ -27,16 +39,18 @@ puts 'creating seed...'
     age: (18..50).to_a.sample,
     user_rating: (0..5).to_a.sample
   )
+  puts "User created! Username: #{user.username}"
 end
 
 10.times do
-  Activity.create!(
+  activity = Activity.create!(
     location: Faker::Address.community,
     name: Faker::Hobby.activity,
     description: Faker::Lorem.paragraph,
     hourly_rate: (5..50).to_a.sample,
     user: User.all.sample
   )
+  puts "Activity created! Name: #{activity.name}, "
 end
 # add_column :users, :username, :string
 # add_column :users, :first_name, :string
@@ -47,13 +61,14 @@ end
 # add_column :users, :user_rating, :integer
 
 10.times do
-  Booking.create!(
+  booking = Booking.create!(
     start_date: Faker::Date.forward(days: 50),
     status: (0..2).to_a.sample,
     user: User.all.sample,
     activity: Activity.all.sample,
     end_date: Faker::Date.forward(days: 50),
   )
+  puts "Booking created! User: #{booking.user}, Activity: #{booking.activity}"
 end
 
 puts "created #{User.count} users, #{Activity.count} activities, #{Booking.count} bookings"
