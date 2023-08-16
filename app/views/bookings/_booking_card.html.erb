@@ -1,0 +1,15 @@
+<div class="booking bg-white p-2">
+        <h3>Date with <%= booking.user.first_name%></h3>
+        <p><%= booking.user.age %> <%= booking.user.gender %> <%= booking.user.preferences %></p>
+        <ul>
+          <li>From <%= booking.start_date %> to <%= booking.end_date %></li> <!-- We need to add the start and end dates -->
+          <li>For <%= booking.activity.description %> at <%= booking.activity.location %></li>
+          <% if booking.status == true %>
+            <li>Status: Confirmed! </li>
+          <% elsif booking.status == "pending" %>
+            <li>Status: Pending... </li>
+          <% else %>
+            <li>Status: Rejected </li>
+          <% end %>
+        </ul>
+      </div>
