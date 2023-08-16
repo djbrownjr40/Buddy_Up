@@ -9,11 +9,23 @@ require 'faker'
 
 puts 'deleteing previous db..'
 
-Booking.destroy_all
-Activity.destroy_all
-User.destroy_all
+puts 'bookings destroyed' if Booking.destroy_all
+puts 'activities destroyed' if Activity.destroy_all
+puts 'users destroyed' if User.destroy_all
 
 puts 'creating seed...'
+
+ brad = User.create!(
+  email: "blbla@gmail.com",
+  password: 'secret',
+  username: "brad12",
+  first_name: "Brad",
+  last_name: "Bread",
+  gender: "male",
+  preferences: "straight",
+  age: 24,
+  user_rating: 2 )
+
 
 10.times do
   user = User.create!(
@@ -27,6 +39,8 @@ puts 'creating seed...'
     age: (18..50).to_a.sample,
     user_rating: (0..5).to_a.sample
   )
+  puts "User created! Username: #{user.username}"
+
   gender = Faker::Gender.type
   age = (18..50).to_a.sample
   url = "https://this-person-does-not-exist.com/new?gender=#{gender}&age=#{age}&etnic=all"
@@ -35,26 +49,31 @@ puts 'creating seed...'
   photo_url = "https://this-person-does-not-exist.com#{src}"
   file = URI.open(photo_url)
   user.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
+
 end
 
 10.times do
-  Activity.create!(
+  activity = Activity.create!(
     location: Faker::Address.community,
     name: Faker::Hobby.activity,
     description: Faker::Lorem.paragraph,
-    hourly_rate: (5..50).to_a.sample,
+    hourly_rate: (5..20).to_a.sample * 1000,
     user: User.all.sample
   )
+  url = "http://source.unsplash.com/featured/?#{activity.name}"
+  file = URI.open(url)
+  activity.photo.attach(io: file, filename: 'activity.png', content_type: 'image/png')
 end
 
 10.times do
-  Booking.create!(
+  booking = Booking.create!(
     start_date: Faker::Date.forward(days: 50),
     status: (0..2).to_a.sample,
     user: User.all.sample,
     activity: Activity.all.sample,
     end_date: Faker::Date.forward(days: 50),
   )
+  puts "Booking created! User: #{booking.user}, Activity: #{booking.activity}"
 end
 
 puts "created #{User.count} users, #{Activity.count} activities, #{Booking.count} bookings"
