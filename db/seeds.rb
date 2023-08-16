@@ -20,7 +20,7 @@ puts 'creating seed...'
     email: Faker::Internet.email,
     password: 'secret',
     first_name: 'Noe',
-    age: 21,
+    age: 19,
     gender: 'she/her',
     preferences: 'she preferes you'
   )
@@ -38,10 +38,11 @@ end
 
 10.times do
   Booking.create!(
-    date: Faker::Date.forward(days: 50),
-    status: nil,
+    start_date: Faker::Date.forward(days: 50),
+    status: (0..2).to_a.sample,
     user: User.all.sample,
-    activity: Activity.all.sample
+    activity: Activity.all.sample,
+    end_date: Faker::Date.forward(days: 50),
   )
 end
 
