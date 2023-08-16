@@ -25,6 +25,14 @@ p 'creating seed...'
     age: (18..50).to_a.sample,
     user_rating: (0..5).to_a.sample
   )
+  gender = Faker::Gender.type
+  age = (18..50).to_a.sample
+  url = "https://this-person-does-not-exist.com/new?gender=#{gender}&age=#{age}&etnic=all"
+  json = URI.open(url)
+  src = JSON.parse(json)['src']
+  photo_url = "https://this-person-does-not-exist.com#{src}"
+  file = URI.open(photo_url)
+  User.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
 end
 
 10.times do
@@ -36,13 +44,6 @@ end
     user: User.all.sample
   )
 end
-# add_column :users, :username, :string
-# add_column :users, :first_name, :string
-# add_column :users, :last_name, :string
-# add_column :users, :gender, :string
-# add_column :users, :prefefrences, :string
-# add_column :users, :age, :integer
-# add_column :users, :user_rating, :integer
 
 10.times do
   Booking.create!(
