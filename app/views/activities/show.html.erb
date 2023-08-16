@@ -1,5 +1,25 @@
-<div class="activity-image-container">
+<div class="cards-container">
   <div class="activity-card">
+    <div class="activity-image-container">
+      <%= image_tag 'https://plus.unsplash.com/premium_photo-1661284917589-d96587cbe886?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YWN0aXZpdHl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60', class: 'activity-image' %>
+      <div class="activity-details">
+        <h1 class="activity-title"><%= @activity.name %></h1>
+        <p class="activity-description"><%= @activity.description %></p>
+        <p class="activity-location">Location: <%= @activity.location %></p>
+        <p class="activity-hourly-rate">Hourly rate: ¥<%= @activity.hourly_rate %></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="profile-card">
+    <div class="profile-image">
+      <img src="profile-image.jpg" alt="Profile Image">
+    </div>
+    <div class="profile-details">
+      <h2><%= @activity.user.first_name %> ・ <%= @activity.user.age %></h2>
+      <p><%= @activity.user.gender %></p>
+    </div>
+
     <%= image_tag 'https://plus.unsplash.com/premium_photo-1661284917589-d96587cbe886?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YWN0aXZpdHl8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60', class: 'card-image' %>
     <h1 class="activity-title" ><%= @activity.description %></h1>
     <p class="activity-description">Join us for an exciting nature hike through scenic trails and breathtaking landscapes.</p>
@@ -7,9 +27,11 @@
       Location: <%= @activity.location %><br>
       Hourly rate: ¥<%= @activity.hourly_rate %>
     </p>
-    <p><%= render 'bookings/form' %></p>
+   
+
   </div>
 </div>
+ <p><%= render 'bookings/form' %></p>
 <div>
   <%= link_to "Back to activities", activities_path, class: "button-link" %>
 </div>
