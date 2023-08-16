@@ -3,19 +3,19 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    booking.activity = @activity
-    @booking.save
+    @booking.activity = @activity
+    @booking.user = current_user
     if @booking.save
-      redirect_to booking_path(@booking)
+      redirect_to bookings_path(@booking)
     else
-      render :new, status: :unprocessable_entity
+      render 'activities/show', status: :unprocessable_entity
     end
   end
 
   private
 
   def set_activity
-    @activity = Activity.find(params[:id])
+    @activity = Activity.find(params[:activity_id])
   end
 
   def booking_params
