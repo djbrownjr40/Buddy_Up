@@ -5,11 +5,11 @@
     <p class="activity-description">Join us for an exciting nature hike through scenic trails and breathtaking landscapes.</p>
     <p class="activity-details">
       Location: <%= @activity.location %><br>
-      Hourly rate: $<%= @activity.hourly_rate %>
+      Hourly rate: ¥<%= @activity.hourly_rate %>
     </p>
     <p><%= render 'bookings/form' %></p>
   </div>
 </div>
 <div>
-  <%= link_to "Back to activities", activities_path %>
+  <%= link_to "Back to activities", activities_path, class: "button-link" %>
 </div>
