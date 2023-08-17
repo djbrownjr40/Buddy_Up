@@ -1,5 +1,5 @@
 <div class="booking bg-white p-2">
-        <h3>Date with <%= booking.activity.user.first_name%></h3>
+        <h3><%= booking.activity.name %> with <%= booking.activity.user.first_name%> on <%= booking.start_date.strftime('%B %d, %Y') %> </h3>
         <p><%= booking.user.age %> <%= booking.user.gender %> <%= booking.user.preferences %></p>
         <ul>
           <li>From <%= booking.start_date %> to <%= booking.end_date %></li> <!-- We need to add the start and end dates -->
@@ -13,6 +13,7 @@
           <% end %>
         </ul>
       </div>
+
 
       <% if booking.pending? %>
           <div class="card-footer">

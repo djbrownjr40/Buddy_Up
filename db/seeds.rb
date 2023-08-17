@@ -23,8 +23,7 @@ puts 'creating seed...'
   last_name: "Bread",
   gender: "male",
   preferences: "straight",
-  age: 24,
-  user_rating: 2 )
+  age: 24)
 
 
 10.times do
@@ -37,7 +36,6 @@ puts 'creating seed...'
     gender: Faker::Gender.type,
     preferences: Faker::Gender.type,
     age: (18..50).to_a.sample,
-    user_rating: (0..5).to_a.sample
   )
   puts "User created! Username: #{user.username}"
 

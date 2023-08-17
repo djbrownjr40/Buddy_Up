@@ -6,12 +6,12 @@
 
   <div class="bookings">
     <% @bookings.each do |booking| %>
-      <% if booking.confirmed? == true %>
+      <% if booking.confirmed? %>
         <div class="card border-success mb-3" style="max-width: 18rem;">
           <div class="card-header text-success">Confirmed!</div>
           <%= render "/bookings/booking_card", booking: booking %>
         </div>
-      <% elsif booking.confirmed? == false %>
+      <% elsif booking.rejected? %>
         <div class="card border-danger mb-3" style="max-width: 18rem;">
           <div class="card-header text-danger">Rejected</div>
           <%= render "/bookings/booking_card", booking: booking %>
