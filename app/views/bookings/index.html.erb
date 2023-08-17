@@ -4,24 +4,16 @@
     <%= link_to "Back to search", activities_path, class: "p-3" %>
   </div>
 
+
   <div class="bookings">
     <% @bookings.each do |booking| %>
-      <% if booking.confirmed? %>
-        <div class="card border-success mb-3" style="max-width: 18rem;">
-          <div class="card-header text-success">Confirmed!</div>
-          <%= render "/bookings/booking_card", booking: booking %>
-        </div>
-      <% elsif booking.rejected? %>
-        <div class="card border-danger mb-3" style="max-width: 18rem;">
-          <div class="card-header text-danger">Rejected</div>
-          <%= render "/bookings/booking_card", booking: booking %>
-        </div>
-      <% else %>
-        <div class="card border-secondary mb-3" style="max-width: 18rem;">
-          <div class="card-header text-secondary">Pending...</div>
-          <%= render "/bookings/booking_card", booking: booking %>
-        </div>
-      <% end %>
+    <%= render "booking_card", booking: booking %>
+    <% end %>
+  </div>
+    <h1>bookings received</h1>
+    <div class="bookings">
+    <% @bookings_as_owner.each do |booking| %>
+      <%= render "booking_card", booking: booking %>
     <% end %>
   </div>
 </div>
