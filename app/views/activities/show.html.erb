@@ -1,6 +1,9 @@
 
 
 <div class="cards-container">
+  <div class="row">
+      <div class="col-12 col-lg-8">
+
   <div class="activity-card">
     <div class="activity-image-container">
       <%= cl_image_tag @activity.photo.key, class: 'activity-image' %>
@@ -9,25 +12,29 @@
         <p class="activity-description"><%= @activity.description %></p>
         <p class="activity-location">Location: <%= @activity.location %></p>
         <p class="activity-hourly-rate">Hourly rate: ¥<%= @activity.hourly_rate %></p>
+        </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="profile-card">
-    <div class="profile-image">
-            <%= cl_image_tag @activity.user.photo.key %>
-    </div>
-    <div class="profile-details">
-      <h2><%= @activity.user.first_name %> ・ <%= @activity.user.age %></h2>
-      <p><%= @activity.user.gender %></p>
-    </div>
-  </div>
-</div>
+  <div class="col-12 col-lg-4">
+    <div class="profile-card">
+      <div class="profile-image">
+        <%= cl_image_tag @activity.user.photo.key %>
+      </div>
 
-<div class="cards-container">
-  <div class="activity-card">
-    <%= render 'bookings/form' %>
-  </div>
+      <div class="profile-details">
+          <h2><%= @activity.user.first_name %> ・ <%= @activity.user.age %></h2>
+          <p><%= @activity.user.gender %></p>
+    </div>
+      </div>
+    </div>
+
+    <div class="activity-card">
+      <%= render 'bookings/form' %>
+    </div>
+
 </div>
 
 <div>
