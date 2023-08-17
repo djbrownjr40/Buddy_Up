@@ -7,55 +7,13 @@
 
   <div class="bookings">
     <% @bookings.each do |booking| %>
-      <% if booking.confirmed? %>
-        <div class="card border-success mb-3" style="max-width: 18rem;">
-          <div class="card-header text-success">Confirmed!</div>
-          <%= render "/bookings/booking_card", booking: booking %>
-        </div>
-      <% elsif booking.rejected? %>
-        <div class="card border-danger mb-3" style="max-width: 18rem;">
-          <div class="card-header text-danger">Rejected</div>
-          <%= render "/bookings/booking_card", booking: booking %>
-        </div>
-      <% else %>
-        <div class="card border-secondary mb-3" style="max-width: 18rem;">
-          <div class="card-header text-secondary">Pending...</div>
-          <%= render "/bookings/booking_card", booking: booking %>
-          <% if booking.pending? %>
-          <div class="card-footer">
-            <%= simple_form_for booking do |f| %>
-              <%= f.input :status, as: :hidden, input_html:{value: "confirmed"} %>
-              <%= f.submit "Accept", class: "btn btn-success" %>
-            <% end %>
-            <%= simple_form_for booking do |f| %>
-              <%= f.input :status, as: :hidden, input_html:{value: "rejected"} %>
-              <%= f.submit "Reject", class: "btn btn-danger" %>
-            <% end %>
-          </div>
-        <% end %>
-        </div>
-      <% end %>
+    <%= render "booking_card", booking: booking %>
     <% end %>
   </div>
     <h1>bookings received</h1>
     <div class="bookings">
     <% @bookings_as_owner.each do |booking| %>
-      <% if booking.confirmed? %>
-        <div class="card border-success mb-3" style="max-width: 18rem;">
-          <div class="card-header text-success">Confirmed!</div>
-          <%= render "/bookings/booking_card", booking: booking %>
-        </div>
-      <% elsif booking.rejected? %>
-        <div class="card border-danger mb-3" style="max-width: 18rem;">
-          <div class="card-header text-danger">Rejected</div>
-          <%= render "/bookings/booking_card", booking: booking %>
-        </div>
-      <% else %>
-        <div class="card border-secondary mb-3" style="max-width: 18rem;">
-          <div class="card-header text-secondary">Pending...</div>
-          <%= render "/bookings/booking_card", booking: booking %>
-        </div>
-      <% end %>
+      <%= render "booking_card", booking: booking %>
     <% end %>
   </div>
 </div>
