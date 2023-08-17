@@ -1,0 +1,11 @@
+<div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-3 col-xxl-3 card bg-light sticky-top">
+  <h1>add a new activity</h1>
+  <%= simple_form_for @activity do |f| %>
+    <%= f.input :name, required: true %>
+    <%= f.input :location, required: true %>
+    <%= f.input :description, required: true %>
+    <%= f.input :hourly_rate, required: true %>
+    <%= f.input :photo, as: :file %>
+    <%= f.button :submit, "post your activity!" %>
+  <% end %>
+</div>
