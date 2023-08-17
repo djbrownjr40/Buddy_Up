@@ -1,9 +1,8 @@
 <div class="container">
   <div class="d-flex flex-row align-items-baseline justify-content-between">
-    <h1>Your Bookings <%= link_to "Requests for You", owner_bookings_path%></h1>
+    <h1><%= link_to "Your Bookings", bookings_path%> Requests for You</h1>
     <%= link_to "Back to search", activities_path, class: "p-3" %>
   </div>
-
 
     <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
       <li class="nav-item" role="presentation">

@@ -18,4 +18,12 @@
 
 @import "components/bookings_grid";
 
-@import "components/back_button"
+@import "components/back_button";
+
+a {
+  text-decoration: none;
+  color: rgb(109, 109, 109);
+  &:hover {
+    color:rgb(47, 47, 47)
+  }
+}
