@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
   before_action :set_activity, only: [:create]
 
   def index
-    @bookings = Booking.where(user:current_user)
+    @bookings = Booking.where(user: current_user)
     @bookings_as_owner = current_user.bookings_as_owner
   end
 
