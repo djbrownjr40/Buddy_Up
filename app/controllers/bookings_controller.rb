@@ -16,6 +16,15 @@ class BookingsController < ApplicationController
     end
   end
 
+  def update
+    @booking = Booking.find(params[:id])
+    if @booking.update(booking_params)
+      redirect_to bookings_path, notice: "Booking status updated successfully."
+    else
+      render :index, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def set_activity
@@ -23,6 +32,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :user_id, :activity_id)
+    params.require(:booking).permit(:start_date, :end_date, :user_id, :activity_id, :status)
   end
 end
