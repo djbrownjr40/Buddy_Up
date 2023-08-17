@@ -6,7 +6,11 @@
 
   <div class="activity-card">
     <div class="activity-image-container">
+    <% if @activity.photo.attached? %>
       <%= cl_image_tag @activity.photo.key, class: 'activity-image' %>
+    <% else %>
+      <%= image_tag 'sunset.jpg' %>
+    <% end %>
       <div class="activity-details">
         <h1 class="activity-title"><%= @activity.name %></h1>
         <p class="activity-description"><%= @activity.description %></p>
@@ -21,12 +25,19 @@
   <div class="col-12 col-lg-4">
     <div class="profile-card">
       <div class="profile-image">
-        <%= cl_image_tag @activity.user.photo.key %>
-      </div>
-
+      <% if @activity.user.photo.attached? %>
+          <%= cl_image_tag @activity.user.photo.key %>
+        <% else %>
+          <%= image_tag 'user_profile.avif' %>
+        <% end %>
       <div class="profile-details">
+      <% if @activity.user.first_name.present? && @activity.user.gender.present? && @activity.user.age.present?%>
           <h2><%= @activity.user.first_name %> ・ <%= @activity.user.age %></h2>
           <p><%= @activity.user.gender %></p>
+      <% else %>
+          <h2></h2>
+          <p> male </p>
+      <% end %>
     </div>
       </div>
     </div>
