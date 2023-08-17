@@ -23,8 +23,7 @@ puts 'creating seed...'
   last_name: "Bread",
   gender: "male",
   preferences: "straight",
-  age: 24,
-  user_rating: 2 )
+  age: 24)
 
 
 10.times do
@@ -37,13 +36,10 @@ puts 'creating seed...'
     gender: Faker::Gender.type,
     preferences: Faker::Gender.type,
     age: (18..50).to_a.sample,
-    user_rating: (0..5).to_a.sample
   )
   puts "User created! Username: #{user.username}"
 
-  gender = Faker::Gender.type
-  age = (18..50).to_a.sample
-  url = "https://this-person-does-not-exist.com/new?gender=#{gender}&age=#{age}&etnic=all"
+  url = "https://this-person-does-not-exist.com/new?gender=#{user.gender}&age=#{user.age}&etnic=all"
   json = URI.open(url).read
   src = JSON.parse(json)['src']
   photo_url = "https://this-person-does-not-exist.com#{src}"
