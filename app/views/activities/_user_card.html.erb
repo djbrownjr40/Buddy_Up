@@ -1,0 +1,27 @@
+<div class="profile-card">
+  <div class="d-flex">
+    <div class="profile-image">
+      <% if @activity.user.photo.attached? %>
+        <%= cl_image_tag @activity.user.photo.key %>
+      <% else %>
+        <%= image_tag 'user_profile.avif' %>
+      <% end %>
+    </div>
+    <div class="profile-details">
+      <% if @activity.user.first_name.present? && @activity.user.gender.present? && @activity.user.age.present?%>
+        <h2><%= @activity.user.first_name %> ・ <%= @activity.user.age %></h2>
+        <p><%= @activity.user.gender %></p>
+      <% else %>
+        <h2><%= @activity.user.username %></h2>
+      <% end %>
+    </div>
+  </div>
+  <div class="rating">
+    <% @activity.average_rating.times do %>
+      <i class="fa-solid fa-star" style="color: #ffde0a;"></i>
+    <% end %>
+    <% (5 - @activity.average_rating).times do %>
+      <i class="fa-regular fa-star" style="color: #ffde0a;"></i>
+    <% end %>
+  </div>
+</div>

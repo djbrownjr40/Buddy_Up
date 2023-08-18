@@ -1,0 +1,11 @@
+<% if @activity.photo.attached? %>
+  <%= cl_image_tag @activity.photo.key, class: 'activity-image' %>
+<% else %>
+  <%= image_tag 'sunset.jpg' %>
+<% end %>
+<div class="activity-details bg-white text-dark">
+    <h1 class="title"><strong><%= @activity.name %></strong></h1>
+    <p class="description"><%= @activity.description %></p>
+    <p class="location">Location: <%= @activity.location %></p>
+    <p class="hourly-rate">¥<%= @activity.hourly_rate %>/hour</p>
+</div>
