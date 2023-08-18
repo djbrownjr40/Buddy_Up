@@ -1,9 +1,18 @@
-  <div class="card bg-white rounded-4 p-1 m-2" style="width: 25rem; height: 15rem;">
+  <div class="card bg-white rounded-4 p-1 m-2" style="width: 25rem; height: 18rem;">
     <div class="pt-3 ps-3 pe-3">
+      <div class="d-inline-flex">
+          <div class="profile-image">
+            <%= cl_image_tag booking.activity.user.photo.key %>
+          </div>
       <h3><strong><%= booking.activity.name %></strong> with <%= booking.activity.user.first_name%> on <%= booking.start_date.strftime('%B %d') %> </h3>
-        <div class=>
-          <p><%= booking.activity.location %></p>
-          <p><%= booking.start_date %> -- <%= booking.end_date %> </p>
-        </div>
+      </div>
+      <div class="d-inline-flex">
+        <i class="fa-solid fa-map-pin"></i>
+        <p class="ms-2"><%= booking.activity.location %></p>
+
+        <p class="ps-5">Start: <%=booking.start_date %><br>End: <%= booking.end_date %></p>
+      </div>
+      <hr class="dropdown-divider">
+      <p class="pt-1"><%= booking.activity.description %></p>
       </div>
   </div>
