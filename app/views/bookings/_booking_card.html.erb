@@ -1,6 +1,5 @@
-
-
 <% if booking.user != current_user %>
   <%= render "bookings/booking_update_form", booking: booking %>
-  <%= else render "bookings/booking_card_info", booking: booking %>
+  <% else %>
+   <%= render "bookings/booking_card_info", booking: booking %>
 <% end %>
