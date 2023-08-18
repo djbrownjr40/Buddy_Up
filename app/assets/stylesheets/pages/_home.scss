@@ -1,1 +1,29 @@
 // Specific CSS for your home-page
+.small-search-input {
+  width: 75%; /* Adjust the width as needed */
+  padding: 5px; /* Add padding to prevent touching the edges */
+}
+
+.text-center {
+  text-align: center !important;
+  margin-bottom: 40px;
+}
+
+/* Define a CSS class for short input fields */
+.short-input {
+  width: 50%; /* Adjust the width as needed */
+  max-width: 100%; /* Ensure responsiveness */
+}
+
+/* Additional styling for buttons */
+.activity-form .btn-primary {
+  width: 100%;
+  margin-top: 10px;
+  border: none;
+}
+
+
+
+body {
+  background-color: #f1f2f4;
+}
