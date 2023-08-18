@@ -1,9 +1,10 @@
+<div class="button-show">
 <div class="p-1 m-2"><p class="text-end pe-3 booking-color-<%=booking.status%>" style="margin: 0;"><strong><%= booking.status.capitalize %></strong></p>
   <div class="card bg-white rounded-4 booking-border-<%=booking.status%>" style="width: 25rem; height: 18rem;">
     <div class="pt-3 ps-3 pe-3">
       <div class="d-inline-flex">
           <div class="profile-image">
-            <%= cl_image_tag booking.activity.user.photo.key if booking.activity.user.photo.attatched?%>
+            <%= cl_image_tag booking.activity.user.photo.key if booking.activity.user.photo.attached?%>
           </div>
       <h3><strong><%= booking.activity.name %></strong> with <%= booking.activity.user.first_name%> on <%= booking.start_date.strftime('%B %d') %> </h3>
       </div>
@@ -16,5 +17,9 @@
       <hr class="dropdown-divider">
       <p class="pt-1"><%= booking.activity.description %></p>
       </div>
+      <% if booking.user != current_user %>
+      <%= render "bookings/booking_update_form", booking: booking %>
+      <% end %>
   </div>
+</div>
 </div>

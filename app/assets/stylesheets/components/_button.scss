@@ -5,3 +5,20 @@
   padding: 10px;
   text-decoration: none;
 }
+.hide-button {
+  display: none;
+  position: center;
+  // top: 25%;
+  // right: 35%;
+}
+
+
+.button-show:hover .hide-button{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.button-show {
+  position: relative;
+}

@@ -1,5 +1,5 @@
 <% if booking.pending? %>
-  <div class="card-footer">
+  <div class="card-footer hide-button">
     <%= simple_form_for booking do |f| %>
       <%= f.input :status, as: :hidden, input_html:{value: "confirmed"} %>
       <%= f.submit "Accept", class: "btn btn-success" %>
