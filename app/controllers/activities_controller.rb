@@ -3,6 +3,11 @@ class ActivitiesController < ApplicationController
 
   def index
     @activities = Activity.all
+    if params[:query].present?
+      @activities = Activity.search_by_name(params[:query])
+    else
+      @activities = Activity.all
+    end
   end
 
   def show
@@ -25,6 +30,6 @@ class ActivitiesController < ApplicationController
   private
 
   def activity_params
-    params.require(:activity).permit(:location, :description, :hourly_rate, :photo)
+    params.require(:activity).permit(:name, :location, :description, :hourly_rate, :photo)
   end
 end
