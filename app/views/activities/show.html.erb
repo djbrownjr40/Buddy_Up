@@ -25,32 +25,45 @@
   <div class="col-12 col-lg-4">
     <div class="profile-card">
       <div class="profile-image">
-      <% if @activity.user.photo.attached? %>
+        <% if @activity.user.photo.attached? %>
           <%= cl_image_tag @activity.user.photo.key %>
         <% else %>
           <%= image_tag 'user_profile.avif' %>
         <% end %>
+      </div>
       <div class="profile-details">
-      <% if @activity.user.first_name.present? && @activity.user.gender.present? && @activity.user.age.present?%>
+        <% if @activity.user.first_name.present? && @activity.user.gender.present? && @activity.user.age.present?%>
           <h2><%= @activity.user.first_name %> ・ <%= @activity.user.age %></h2>
           <p><%= @activity.user.gender %></p>
-      <% else %>
-          <h2></h2>
-          <p> male </p>
-      <% end %>
-    </div>
+        <% else %>
+          <h2><%= @activity.user.username %></h2>
+        <% end %>
+      </div>
+      <div class="rating">
+        <% @activity.average_rating.times do %>
+          <i class="fa-solid fa-star" style="color: #ffde0a;"></i>
+        <% end %>
+        <% (5 - @activity.average_rating).times do %>
+          <i class="fa-regular fa-star" style="color: #ffde0a;"></i>
+        <% end %>
       </div>
     </div>
-
-    <div class="activity-card">
+    <div class="activity-card bg-white">
       <%= render 'bookings/form', booking: Booking.new %>
     </div>
-    <div class="activity-card">
+    <div class="activity-card bg-white">
       <%= render 'reviews/form', review: Review.new %>
     </div>
-
-</div>
-
-<div>
-  <%= link_to "Back to activities", activities_path, class: "button-link" %>
+  </div>
+  <div class="reviews">
+    <h2><%= @activity.user.first_name %> 's reviews </h2>
+    <ul class="list-group">
+      <% @activity.reviews.each do |review| %>
+        <li class="list-group-item"><%= review.comment %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div>
+    <%= link_to "Back to activities", activities_path, class: "button-link" %>
+  </div>
 </div>
