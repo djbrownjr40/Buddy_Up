@@ -73,7 +73,7 @@ end
   activity = Activity.create!(
     location: Faker::Address.community,
     name: Faker::Hobby.activity,
-    description: Faker::Lorem.paragraph,
+    description: Faker::Quote.famous_last_words
     hourly_rate: (5..20).to_a.sample * 1000,
     user: User.all.sample
   )
