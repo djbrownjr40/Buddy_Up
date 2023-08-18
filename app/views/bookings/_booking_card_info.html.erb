@@ -1,5 +1,5 @@
-<div> <p class="ps-3"> <%= booking.status.upcase %> </p>
-  <div class="card bg-white rounded-4 p-1 m-2 booking-border-<%=booking.status%>" style="width: 25rem; height: 18rem;">
+<div class="p-1 m-2"><p class="text-end pe-3 booking-color-<%=booking.status%>" style="margin: 0;"><strong><%= booking.status.capitalize %></strong></p>
+  <div class="card bg-white rounded-4 booking-border-<%=booking.status%>" style="width: 25rem; height: 18rem;">
     <div class="pt-3 ps-3 pe-3">
       <div class="d-inline-flex">
           <div class="profile-image">
