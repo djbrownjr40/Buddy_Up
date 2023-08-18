@@ -1,22 +1,41 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path "sunset.jpg" %>);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path "hiking.jpg" %>);">
   <div class="container">
-    <h1>Welcome to Buddyアップ</h1>
-    <p>Find your next date-partner</p>
-  </div>
-</div>
-<div class="container">
-<div class="search-bar mt-5">
-    <nav class="navbar navbar-light d-flex justify-content-center">
-      <%# <form class="d-flex flex-row">
-        <input class="form-control mr-sm-2 col-10 mx-4" type="search" placeholder="Search" aria-label="Search">
-        <%= link_to "search", activities_path, class: "btn btn-outline-primary my-2 my-sm-0" %>
-        <form class="d-flex flex-row" action="<%= activities_path %>" method="GET">
-        <input class="form-control mr-sm-2 col-10 mx-4" type="search" placeholder="Search" aria-label="Search" name="query">
-        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
-      </form>
-      </form>
-    </nav>
+    <h1>Welcome to buddyアップ</h1>
+    <p>Meet new friends through activities!</p>
+    <p>Need a plus 1 for a wedding?</p>
+    <p>Or just looking to earn some coin for your spare time?</p>
   </div>
 </div>
 
-<%= render "activities/create_activity", activity: @activity %>
+<div class="container mt-5">
+  <h2 class="text-center">How buddyup works</h2>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="search-details">
+        <h3>Find new friends through your favorite hobbies, sports, and games, try something new...</h3>
+      </div>
+
+      <div class="search-bar">
+        <form class="d-flex flex-row" action="<%= activities_path %>" method="GET">
+          <input class="form-control mr-sm-2 small-search-input" type="search" placeholder="hiking" aria-label="Search" name="query">
+          <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">go!</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card bg-light sticky-top">
+        <h1 class="text-center">...or add a new activity!</h1>
+        <%= simple_form_for @activity do |f| %>
+          <%= f.input :name, required: true %>
+          <%= f.input :location, required: true %>
+          <%= f.input :description, required: true %>
+          <%= f.input :hourly_rate, required: true %>
+          <%= f.input :photo, as: :file %>
+          <%= f.button :submit, "Post Your Activity!", class: "btn btn-primary btn-block" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
