@@ -9,11 +9,22 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
   <body>
-  <%= render "layouts/navbar" %>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+    <%= render "layouts/navbar" %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
+    <div class="footer">
+      <div class="footer-links">
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <div class="footer-copyright">
+        © 2023 Buddyアップ, Inc <i class="fas fa-heart"></i>
+      </div>
+    </div>
   </body>
 </html>
