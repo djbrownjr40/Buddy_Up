@@ -5,6 +5,8 @@
    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+
+
 .card-link {
   position: absolute;
 top: 0;
@@ -36,6 +38,7 @@ width: 100%;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   position: relative;
+  border-radius: 15px;
 }
 
 .card-trip > img {
