@@ -1,6 +1,6 @@
 class Activity < ApplicationRecord
   has_many :bookings
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
   belongs_to :user
   has_one_attached :photo
 
@@ -15,7 +15,7 @@ class Activity < ApplicationRecord
     end
     sum / reviews.length
   end
-  
+
   include PgSearch::Model
   pg_search_scope :search_by_name,
   against: [ :name ],

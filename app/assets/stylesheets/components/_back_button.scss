@@ -2,13 +2,12 @@
   display: inline-block;
   padding: 10px 20px;
   background: linear-gradient(45deg, #47369f, #6b6ad3); /* Gradient background */
-  border-radius: 30px; /* Rounded shape */
+  border-radius: 20px; /* Rounded shape */
   color: white; /* Text color */
   text-decoration: none;
-  font-weight: bold;
+  // font-weight: bold;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   transition: transform 0.2s, background 0.2s; /* Add smooth transition */
-  margin: 20px 40px 20px;
 }
 
 .button-link:hover {
