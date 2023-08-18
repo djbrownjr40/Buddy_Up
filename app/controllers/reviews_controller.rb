@@ -3,8 +3,7 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    @review.activity_id = @activity
-    @review.user = current_user
+    @review.activity = @activity
     if @review.save
       redirect_to activity_path(@activity)
     else

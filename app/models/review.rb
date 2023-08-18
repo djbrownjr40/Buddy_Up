@@ -1,6 +1,6 @@
 class Review < ApplicationRecord
-  belongs_to :user
+  belongs_to :activity
 
-  validates :ratings, inclusion: { in: (0..5) }
+  validates :rating, inclusion: { in: (0..5) }
   validates :comment, presence: true, length: { minimum: 3 }
 end
