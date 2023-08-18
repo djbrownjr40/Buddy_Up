@@ -1,5 +1,5 @@
 <div class="card-trip">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+    <%= cl_image_tag activity.photo.key  if activity.photo.attached? %>
   <div class="card-trip-infos">
     <div>
       <h2><%= activity.name %></h2>
@@ -7,7 +7,9 @@
       <p><%= activity.location%></p>
     </div>
     <h2 class="card-trip-pricing"> ¥<%= activity.hourly_rate%> per hour</h2>
-    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+    <% if activity.user.photo.attached? %>
+    <%= cl_image_tag activity.user.photo.key, class: "card-trip-user avatar-bordered" %>
+    <% end %>
   </div>
 <%= link_to "", activity_path(activity), class: "card-link" %>
 </div>
