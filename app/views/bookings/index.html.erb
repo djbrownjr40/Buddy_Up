@@ -1,6 +1,6 @@
 <div class="container">
   <div class="d-flex flex-row align-items-baseline justify-content-between">
-    <h1>Your Bookings <%= link_to "Requests for You", owner_bookings_path%></h1>
+    <h1>Your Bookings | <%= link_to "Requests for You", owner_bookings_path%></h1>
     <%= link_to "Back to search", activities_path, class: "p-3" %>
   </div>
 
@@ -23,19 +23,19 @@
       <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-all" role="tabpanel" aria-labelledby="pills-all-tab" tabindex="0">
 
-            <div class="d-flex flex-row">
+            <div class="d-flex flex-row flex-wrap">
 
               <% @bookings.each do |booking|  %>
                 <%=  render "/bookings/booking_card", booking: booking %>
               <% end %>
+            </div>
 
 
           </div>
 
         <div class="tab-pane fade" id="pills-confirmed" role="tabpanel" aria-labelledby="pills-confirmed-tab" tabindex="0">
-          <div class="tab-pane fade show active" id="pills-confirmed" role="tabpanel" aria-labelledby="pills-confirmed-tab" tabindex="0"></div>
 
-          <div class="d-flex flex-row">
+          <div class="d-flex flex-row flex-wrap">
 
               <% @bookings.where(status: 'confirmed').each do |booking|  %>
                   <%=  render "/bookings/booking_card", booking: booking %>
@@ -45,9 +45,8 @@
         </div>
 
         <div class="tab-pane fade" id="pills-rejected" role="tabpanel" aria-labelledby="pills-rejected-tab" tabindex="0">
-          <div class="tab-pane fade show active" id="pills-rejected" role="tabpanel" aria-labelledby="pills-rejected-tab" tabindex="0"></div>
 
-            <div class="d-flex flex-row">
+            <div class="d-flex flex-row flex-wrap">
 
                   <% @bookings.where(status: 'rejected').each do |booking|  %>
                     <%=  render "/bookings/booking_card", booking: booking %>
@@ -58,9 +57,8 @@
         </div>
 
         <div class="tab-pane fade" id="pills-pending" role="tabpanel" aria-labelledby="pills-pending-tab" tabindex="0">
-          <div class="tab-pane fade show active" id="pills-pending" role="tabpanel" aria-labelledby="pills-pending-tab" tabindex="0"></div>
 
-            <div class="d-flex flex-row">
+            <div class="d-flex flex-row flex-wrap">
 
                 <% @bookings.where(status: 'pending').each do |booking|  %>
                   <%=  render "/bookings/booking_card", booking: booking %>
@@ -70,5 +68,4 @@
 
           </div>
         </div>
-      </div>
 </div>
