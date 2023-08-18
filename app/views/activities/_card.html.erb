@@ -1,15 +1,23 @@
-<div class="card-trip">
-    <%= cl_image_tag activity.photo.key  if activity.photo.attached? %>
+<div class="card card-trip">
+  <%= cl_image_tag activity.photo.key if activity.photo.attached? %>
   <div class="card-trip-infos">
     <div>
-      <h2><%= activity.name %></h2>
-      <p><%= activity.description %></p>
-      <p><%= activity.location%></p>
+      <p class="activity-location"><i class="fas fa-map-marker-alt"></i> <%= activity.location %></p>
+      <h5 class="activity-title"><%= activity.name %></h5>
+      <p class="activity-description mb-3"><%= activity.description %></p>
+      <div class="d-flex align-items-center">
+        <h2 class="card-trip-pricing">¥<%= activity.hourly_rate %></h2>
+        <p class="card-text"> /per hour</p>
+      </div>
     </div>
-    <h2 class="card-trip-pricing"> ¥<%= activity.hourly_rate%> per hour</h2>
-    <% if activity.user.photo.attached? %>
-    <%= cl_image_tag activity.user.photo.key, class: "card-trip-user avatar-bordered" %>
-    <% end %>
+    <div class="d-flex align-items-center justify-content-end">
+      <% if activity.user.photo.attached? %>
+        <%= cl_image_tag activity.user.photo.key, class: "card-trip-user avatar-bordered rounded-circle mr-2" %>
+      <% end %>
+      <% if activity.user.first_name.present? %>
+        <h3 class="card-trip-user-name mb-0"><%= activity.user.first_name %></h3>
+      <% end %>
+    </div>
   </div>
-<%= link_to "", activity_path(activity), class: "card-link" %>
+  <%= link_to "", activity_path(activity), class: "stretched-link card-link" %>
 </div>

@@ -3,7 +3,12 @@
     <%= link_to new_activity_path, class: 'text-dark text-decoration-none' do %>
     <% end %>
   </div>
-
+  <header class="text-center mb-5">
+    <h1 class="display-4 font-weight-bold">Explore Available Activities</h1>
+    <p class="font-italic text-muted mb-0">Discover and rent your next exciting adventure!</p>
+  </header>
+  <h2 class="font-weight-bold mb-2">Featured Activities</h2>
+  <p class="font-italic text-muted mb-4">Find your perfect rental experience from our curated collection.</p>
   <div class="cards">
     <% @activities.each do |activity| %>
       <%= render 'activities/card', activity: activity %>
