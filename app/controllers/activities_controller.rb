@@ -7,8 +7,8 @@ class ActivitiesController < ApplicationController
 
   def show
     @activity = Activity.find(params[:id])
-    @booking = Booking.new
     @review = Review.new
+    @booking = Booking.new
   end
 
   # def new
