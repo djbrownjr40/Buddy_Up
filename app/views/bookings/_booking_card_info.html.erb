@@ -1,15 +1,9 @@
-<div class="booking bg-white p-2">
-  <h3><%= booking.activity.name %> with <%= booking.activity.user.first_name%> on <%= booking.start_date.strftime('%B %d, %Y') %> </h3>
-  <p><%= booking.user.age %> <%= booking.user.gender %> <%= booking.user.preferences %></p>
-  <ul>
-    <li>From <%= booking.start_date %> to <%= booking.end_date %></li> <!-- We need to add the start and end dates -->
-    <li>For <%= booking.activity.description %> at <%= booking.activity.location %></li>
-    <% if booking.confirmed? %>
-      <li>Status: Confirmed! </li>
-    <% elsif booking.pending? %>
-      <li>Status: Pending... </li>
-    <% else %>
-      <li>Status: Rejected </li>
-    <% end %>
-  </ul>
-</div>
+  <div class="card bg-white rounded-4 p-1 m-2" style="width: 25rem; height: 15rem;">
+    <div class="pt-3 ps-3 pe-3">
+      <h3><strong><%= booking.activity.name %></strong> with <%= booking.activity.user.first_name%> on <%= booking.start_date.strftime('%B %d') %> </h3>
+        <div class=>
+          <p><%= booking.activity.location %></p>
+          <p><%= booking.start_date %> -- <%= booking.end_date %> </p>
+        </div>
+      </div>
+  </div>
