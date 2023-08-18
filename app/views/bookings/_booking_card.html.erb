@@ -1,10 +1,5 @@
-<% if booking.confirmed? %>
-    <%= render "bookings/booking_card_info", booking: booking %>
-<% elsif booking.rejected? %>
-    <%= render "bookings/booking_card_info", booking: booking %>
-<% else %>
-    <%= render "bookings/booking_card_info", booking: booking %>
-    <% if booking.user != current_user %>
-      <%= render "bookings/booking_update_form", booking: booking%>
-    <% end %>
+<% if booking.user != current_user %>
+  <%= render "bookings/booking_update_form", booking: booking %>
+  <% else %>
+   <%= render "bookings/booking_card_info", booking: booking %>
 <% end %>
