@@ -24,7 +24,29 @@ puts 'creating seed...'
   gender: "male",
   preferences: "straight",
   age: 24)
+url = "https://this-person-does-not-exist.com/new?gender=#{brad.gender}&age=19-25&etnic=all"
+json = URI.open(url).read
+src = JSON.parse(json)['src']
+photo_url = "https://this-person-does-not-exist.com#{src}"
+file = URI.open(photo_url)
+brad.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
 
+
+miyako = User.create!(
+  email: "debbi_heller@ullrich-goyette.test",
+  password: 'secret',
+  username: "taylor_white",
+  first_name: "Miyako",
+  last_name: "Frami",
+  gender: "Polygender",
+  preferences: "Polygender",
+  age: 48)
+url = "https://this-person-does-not-exist.com/new?gender=#{miyako.gender}&age=19-25&etnic=all"
+json = URI.open(url).read
+src = JSON.parse(json)['src']
+photo_url = "https://this-person-does-not-exist.com#{src}"
+file = URI.open(photo_url)
+miyako.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
 
 10.times do
   user = User.create!(
@@ -39,7 +61,7 @@ puts 'creating seed...'
   )
   puts "User created! Username: #{user.username}"
 
-  url = "https://this-person-does-not-exist.com/new?gender=#{user.gender}&age=#{user.age}&etnic=all"
+  url = "https://this-person-does-not-exist.com/new?gender=#{user.gender}&age=19-25&etnic=all"
   json = URI.open(url).read
   src = JSON.parse(json)['src']
   photo_url = "https://this-person-does-not-exist.com#{src}"
@@ -51,7 +73,7 @@ end
   activity = Activity.create!(
     location: Faker::Address.community,
     name: Faker::Hobby.activity,
-    description: Faker::Lorem.paragraph,
+    description: Faker::Quote.famous_last_words
     hourly_rate: (5..20).to_a.sample * 1000,
     user: User.all.sample
   )

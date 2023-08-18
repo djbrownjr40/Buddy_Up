@@ -1,15 +1,25 @@
-<div class="booking bg-white p-2">
-  <h3><%= booking.activity.name %> with <%= booking.activity.user.first_name%> on <%= booking.start_date.strftime('%B %d, %Y') %> </h3>
-  <p><%= booking.user.age %> <%= booking.user.gender %> <%= booking.user.preferences %></p>
-  <ul>
-    <li>From <%= booking.start_date %> to <%= booking.end_date %></li> <!-- We need to add the start and end dates -->
-    <li>For <%= booking.activity.description %> at <%= booking.activity.location %></li>
-    <% if booking.confirmed? %>
-      <li>Status: Confirmed! </li>
-    <% elsif booking.pending? %>
-      <li>Status: Pending... </li>
-    <% else %>
-      <li>Status: Rejected </li>
-    <% end %>
-  </ul>
+<div class="button-show">
+<div class="p-1 m-2"><p class="text-end pe-3 booking-color-<%=booking.status%>" style="margin: 0;"><strong><%= booking.status.capitalize %></strong></p>
+  <div class="card bg-white rounded-4 booking-border-<%=booking.status%>" style="width: 25rem; height: 18rem;">
+    <div class="pt-3 ps-3 pe-3">
+      <div class="d-inline-flex">
+          <div class="profile-image">
+            <%= cl_image_tag booking.activity.user.photo.key if booking.activity.user.photo.attached?%>
+          </div>
+      <h3><strong><%= booking.activity.name %></strong> with <%= booking.activity.user.first_name%> on <%= booking.start_date.strftime('%B %d') %> </h3>
+      </div>
+      <div class="d-inline-flex">
+        <i class="fa-solid fa-map-pin"></i>
+        <p class="ms-2"><%= booking.activity.location %></p>
+
+        <p class="ps-5">Start: <%=booking.start_date %><br>End: <%= booking.end_date %></p>
+      </div>
+      <hr class="dropdown-divider">
+      <p class="pt-1"><%= booking.activity.description %></p>
+      </div>
+      <% if booking.user != current_user %>
+      <%= render "bookings/booking_update_form", booking: booking %>
+      <% end %>
+  </div>
+</div>
 </div>

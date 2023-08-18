@@ -1,0 +1,23 @@
+.booking-border-pending {
+  border-color: $gray;
+}
+
+.booking-border-confirmed {
+  border-color: $green;
+}
+
+.booking-border-rejected {
+  border-color: $red;
+}
+
+.booking-color-pending {
+  color: $gray;
+}
+
+.booking-color-confirmed {
+  color: $green;
+}
+
+.booking-color-rejected {
+  color: $red;
+}
