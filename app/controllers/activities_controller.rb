@@ -2,12 +2,14 @@ class ActivitiesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @activities = Activity.all
-    if params[:query].present?
-      @activities = Activity.search_by_name(params[:query])
+    @activities = if params[:query].present?
+      Activity.search_by_name(params[:query])
     else
-      @activities = Activity.all
+      Activity.all
     end
+    @no_activities_found = @activities.empty?
+
+    @activity = Activity.new
   end
 
   def show
@@ -21,10 +23,14 @@ class ActivitiesController < ApplicationController
   # end
 
   def create
-    @activity = Activity.create(activity_params)
+    @activity = Activity.new(activity_params)
     @activity.user = current_user
-    @activity.save
-    redirect_to activity_path(@activity)
+
+    if @activity.save
+      redirect_to activity_path(@activity)
+    else
+      render partial: 'create_activity', layout: false
+    end
   end
 
   private
