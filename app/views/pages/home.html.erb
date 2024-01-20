@@ -1,14 +1,28 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-8 text-center">
-      <h1>Buddyアップ</h1>
-      <h3>Find new friends through your favorite hobbies, sports, and games...</h3>
-      <form action="<%= activities_path %>" method="GET">
-        <div class="input-group">
-          <input class="form-control small-search-input" type="search" placeholder="Swimming, billiards, poetry..." aria-label="Search" name="query">
-          <button class="btn button-link" type="submit">go!</button>
-        </div>
-      </form>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path "hiking.jpg" %>);">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8 text-center">
+        <h1>Buddyアップ</h1>
+        <h3 class="sub-banner">Find new friends through your favorite hobbies, sports, and games!</h3>
+        <form action="<%= activities_path %>" method="GET">
+          <div class="input-group">
+            <input class="form-control small-search-input" type="search" placeholder="Swimming, billiards, poetry..." aria-label="Search" name="query">
+            <button class="btn button-link" type="submit">go!</button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
+</div>
+
+<div>
+  <h1>How it works</h1>
+<h2>Use the search bar to find an activity to try</h2>
+<h2>...or <a href="<%= activities_path %>">browse all the fun</a>.</h2>
+<h2>Find something cool? <a href="<%= new_user_registration_path %>">create an account</a> and <a href="<%= new_user_session_path %>">login...</a></h2>
+<h2>then request a booking!</h2>
+<h2>While you wait for your request to get approved, make your own activity!</h2>
+
+
+
 </div>
