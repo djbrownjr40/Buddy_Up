@@ -1,6 +1,17 @@
 <div class="col-12 col-sm-12 col-md-4 col-lg-4 col-xl-3 col-xxl-3 card bg-light sticky-top">
   <h1>add a new activity</h1>
   <%= simple_form_for @activity do |f| %>
+    <% if @activity.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@activity.errors.count, "error") %> prohibited this activity from being saved:</h2>
+        <ul>
+          <% @activity.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
     <%= f.input :name, required: true %>
     <%= f.input :location, required: true %>
     <%= f.input :description, required: true %>

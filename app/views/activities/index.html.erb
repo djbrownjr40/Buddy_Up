@@ -7,11 +7,16 @@
     <h1 class="display-4 font-weight-bold">Explore Available Activities</h1>
     <p class="font-italic text-muted mb-0">Discover and rent your next exciting adventure!</p>
   </header>
-  <h2 class="font-weight-bold mb-2">Featured Activities</h2>
-  <p class="font-italic text-muted mb-4">Find your perfect rental experience from our curated collection.</p>
-  <div class="cards">
-    <% @activities.each do |activity| %>
-      <%= render 'activities/card', activity: activity %>
-    <% end %>
-  </div>
+
+  <% if @no_activities_found %>
+    <p class="text-center">No activities found. How about creating your own? <%= render 'activities/create_activity' %></p>
+  <% else %>
+    <h2 class="font-weight-bold mb-2">Featured Activities</h2>
+    <p class="font-italic text-muted mb-4">Find your perfect rental experience from our curated collection.</p>
+    <div class="cards">
+      <% @activities.each do |activity| %>
+        <%= render 'activities/card', activity: activity %>
+      <% end %>
+    </div>
+  <% end %>
 </div>
