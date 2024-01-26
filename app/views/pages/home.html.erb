@@ -15,14 +15,50 @@
   </div>
 </div>
 
-<div>
-  <h1>How it works</h1>
-<h2>Use the search bar to find an activity to try</h2>
-<h2>...or <a href="<%= activities_path %>">browse all the fun</a>.</h2>
-<h2>Find something cool? <a href="<%= new_user_registration_path %>">create an account</a> and <a href="<%= new_user_session_path %>">login...</a></h2>
-<h2>then request a booking!</h2>
-<h2>While you wait for your request to get approved, make your own activity!</h2>
+<div class="container mt-4" style="background-color: white;">
+
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <h1>How it works</h1>
+    </div>
+  </div>
 
 
+  <div class="row">
+    <div class="col-md-6">
+      <h2>Use the search bar to find an activity to try</h2>
+      <form action="<%= activities_path %>" method="GET">
+          <div class="input-group">
+            <input class="form-control small-search-input" type="search" placeholder="Swimming, billiards, poetry..." aria-label="Search" name="query">
+            <button class="btn button-link" type="submit">go!</button>
+          </div>
+    </div>
+    <div class="col-md-6">
+
+      <%= image_tag('activity1.jpg', alt: 'Image1', style: 'max-width: 400px; height: auto; border-radius: 10px;') %>
+    </div>
+  </div>
+
+
+  <div class="row mt-4">
+    <div class="col-md-6">
+
+      <%= image_tag('activity2.jpg', alt: 'Image 2', style: 'max-width: 400px; height: auto; border-radius: 10px;') %>
+    </div>
+    <div class="col-md-6">
+      <h2>...or <a href="<%= activities_path %>">browse all the fun</a>.</h2>
+    </div>
+  </div>
+
+
+  <div class="row mt-4">
+    <div class="col-md-6">
+      <h2>Find something cool? <a href="<%= new_user_registration_path %>">create an account</a> and <a href="<%= new_user_session_path %>">login!</a></h2>
+    </div>
+    <div class="col-md-6">
+
+      <%= image_tag('activity3.jpg', alt: 'Image 3', style: 'max-width: 400px; height: auto; border-radius: 10px;') %>
+    </div>
+  </div>
 
 </div>
