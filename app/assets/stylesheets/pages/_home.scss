@@ -26,8 +26,19 @@
   border: none;
 }
 
-
-
 body {
   background-color: #E39774;
+}
+
+.banner {
+  background-size: cover;
+  background-position: center;
+  height: 100vh; /* Set height to full viewport height */
+}
+
+.content {
+  padding-top: 100vh; /* Adjust top padding to match banner height */
+  background-color: #E1EFE6;
+  padding-left: 15px;
+  padding-bottom: 15px;
 }
